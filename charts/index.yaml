@@ -3,11 +3,20 @@ entries:
   aad:
   - apiVersion: v1
     appVersion: "1.0"
-    created: "2019-10-09T10:03:36.783437973+02:00"
+    created: "2019-10-09T15:55:55.448750264+02:00"
+    description: Install AAD Pod Identity
+    digest: 488e8b5c6fba754d0b305fab080c8a8ae10e6d24967773197efd6b4008ca5145
+    name: aad
+    urls:
+    - aad-0.2.0.tgz
+    version: 0.2.0
+  - apiVersion: v1
+    appVersion: "1.0"
+    created: "2019-10-09T15:55:55.448622585+02:00"
     description: Install AAD Pod Identity
     digest: 4444eb9499f3dcf7940066d1c1090195ce13dd5584a820c08d1e25f02ed8916a
     name: aad
     urls:
     - aad-0.1.0.tgz
     version: 0.1.0
-generated: "2019-10-09T10:03:36.783189727+02:00"
+generated: "2019-10-09T15:55:55.448382327+02:00"
