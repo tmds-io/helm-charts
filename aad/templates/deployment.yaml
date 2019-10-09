@@ -3,11 +3,17 @@ kind: ServiceAccount
 metadata:
   name: aad-pod-id-nmi-service-account
   namespace: default
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 ---
 apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: azureassignedidentities.aadpodidentity.k8s.io
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   group: aadpodidentity.k8s.io
   version: v1
@@ -20,6 +26,9 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: azureidentitybindings.aadpodidentity.k8s.io
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   group: aadpodidentity.k8s.io
   version: v1
@@ -32,6 +41,9 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: azureidentities.aadpodidentity.k8s.io
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   group: aadpodidentity.k8s.io
   version: v1
@@ -45,6 +57,9 @@ apiVersion: apiextensions.k8s.io/v1beta1
 kind: CustomResourceDefinition
 metadata:
   name: azurepodidentityexceptions.aadpodidentity.k8s.io
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   group: aadpodidentity.k8s.io
   version: v1
@@ -58,6 +73,9 @@ apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: aad-pod-id-nmi-role
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 rules:
   - apiGroups: ["apiextensions.k8s.io"]
     resources: ["customresourcedefinitions"]
@@ -81,6 +99,9 @@ metadata:
   name: aad-pod-id-nmi-binding
   labels:
     k8s-app: aad-pod-id-nmi-binding
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 subjects:
   - kind: ServiceAccount
     name: aad-pod-id-nmi-service-account
@@ -100,6 +121,9 @@ metadata:
     k8s-app: aad-pod-id
   name: nmi
   namespace: default
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   updateStrategy:
     type: RollingUpdate
@@ -161,11 +185,17 @@ kind: ServiceAccount
 metadata:
   name: aad-pod-id-mic-service-account
   namespace: default
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 ---
 apiVersion: rbac.authorization.k8s.io/v1
 kind: ClusterRole
 metadata:
   name: aad-pod-id-mic-role
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 rules:
   - apiGroups: ["apiextensions.k8s.io"]
     resources: ["customresourcedefinitions"]
@@ -192,6 +222,9 @@ metadata:
   name: aad-pod-id-mic-binding
   labels:
     k8s-app: aad-pod-id-mic-binding
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 subjects:
   - kind: ServiceAccount
     name: aad-pod-id-mic-service-account
@@ -209,6 +242,9 @@ metadata:
     k8s-app: aad-pod-id
   name: mic
   namespace: default
+  annotations:
+    "helm.sh/hook": "pre-install"
+    "helm.sh/hook-weight": "1"
 spec:
   replicas: 2
   template:
